@@ -52,10 +52,11 @@ To access the Jenkins UI. Go to `http://<IP>:8080`
 
 
 # Unlock Jenkins
-To unlock the Jenkins you need the password. You can retrieve it with the following
+To initially unlock Jenkins you need the initial admin password. You can retrieve it with the following
 ```bash
 ssh ubuntu@$(terraform output public_ip) 'sudo cat /var/lib/jenkins/secrets/initialAdminPassword'
 ```
+
 
 ## Login/SSH
 
