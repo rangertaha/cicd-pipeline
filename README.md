@@ -3,7 +3,7 @@
 EC2 based CI/CD Pipeline Terraform modules
 
 
-![Architecture](./architecture.png)
+![Architecture](docs/architecture.png)
 
 
 ## Dependencies
@@ -44,6 +44,8 @@ Apply the **plan** creating or updating the infrastructure in AWS.
 terraform apply 
 ```
 
+![Architecture](docs/results.png)
+
 
 ## Destroy
 
@@ -74,7 +76,7 @@ Traditionally, we scale by auto scaling EC2s.
 * Allow jenkins master auto scale slaves/agents with plugin
 
 
- ![Architecture](./architecture2.png)
+ ![Architecture](docs/architecture2.png)
  
 However it would cost less if we used containers for both the 
 master and slaves/agents. Alternatively we could deploy jenkins in
