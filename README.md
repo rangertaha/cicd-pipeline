@@ -49,8 +49,9 @@ terraform apply
 
 ## Login/SSH
 
-You can login to the box with `ssh ubuntu@<IP>`. However to get the ip you use terraform outputs
- 
+You can login to the box with `ssh ubuntu@<IP>`. However to get the ip you use terraform outputs `terrafrom output public_ip`. 
+Together you can do the following to login.
+
 ```bash
 ssh ubuntu@$(terrafrom output public_ip)
 ```
@@ -79,7 +80,7 @@ Edit the `examples/aws/variables.tfvars` file to customize aws configurations fo
  * [ ] Grafana for dashboards
 
  
-## Issues
+## Scaling
 
 Traditionally, we scale by auto scaling EC2s. 
 * Give the cluster a domain name
@@ -93,8 +94,8 @@ However it would cost less if we used containers for both the
 master and slaves/agents. Alternatively we could deploy jenkins in
 Kubernetes which would keep resources at a minimum and scale 
 up and down more naturally. Kubernetes also generates more metrics
-about what is happening within it. However, Kubernets is more complex
-and can scare folks new to containerization systems.
+about what is happening within it. 
+
 
 
  
