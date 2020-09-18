@@ -2,27 +2,6 @@ provider "aws" {
   region = var.region
 }
 
-data "aws_ami" "ubuntu" {
-  most_recent = true
-
-  filter {
-    name = "name"
-    values = [
-      "ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
-  }
-
-  filter {
-    name = "virtualization-type"
-    values = [
-      "hvm"]
-  }
-
- # Canonical
-  owners = ["099720109477"]
-
-}
-
-
 resource "aws_key_pair" "jenkins" {
   key_name = "${var.name}_key"
   public_key = file(pathexpand(var.public_key))
@@ -51,6 +30,13 @@ resource "aws_security_group" "jenkins" {
     protocol = "tcp"
     cidr_blocks = var.whitelisted_web
   }
+  ingress {
+    description = "Allow HTTP"
+    from_port = 8080
+    to_port = 8080
+    protocol = "tcp"
+    cidr_blocks = var.whitelisted_web
+  }
   egress {
     description = "Allow all outbound!"
     from_port = 0
@@ -68,7 +54,9 @@ resource "aws_security_group" "jenkins" {
 
 resource "aws_instance" "jenkins" {
   key_name = aws_key_pair.jenkins.key_name
-  ami = data.aws_ami.ubuntu.id
+
+  #  Ubuntu Server 20.04 LTS (HVM), SSD Volume Type
+  ami = "ami-07efac79022b86107"
   instance_type = "t3.micro"
 
   tags = {
