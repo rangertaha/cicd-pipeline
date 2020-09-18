@@ -22,7 +22,7 @@ jenkins:
     - require:
       - pkg: jenkins
 
-  firewalld.service:
+  firewalld.present:
     - name: jenkins
     - ports:
       - 80/tcp
