@@ -63,7 +63,7 @@ Edit the `examples/aws/variables.tfvars` file to customize aws configurations fo
  * [ ] Scaling Groups
  * [ ] Logging to cloud watch
  * [ ] Cloud watch alerts
- * [ ] Grafana server with awesome dashboards
+ * [ ] Grafana for dashboards
 
  
 ## Issues
