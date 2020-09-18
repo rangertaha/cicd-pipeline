@@ -55,21 +55,35 @@ terrafrom destroy
 ## Customizations
 Edit the `examples/aws/variables.tfvars` file to customize aws configurations for the jenkins server.
  
- 
- 
+
+# TODO
+ * [ ] Route53/DNS
+ * [ ] Backup/Restore
+ * [ ] Load Balancing
+ * [ ] Scaling Groups
+ * [ ] Logging to cloud watch
+ * [ ] Cloud watch alerts
+ * [ ] Grafana server with awesome dashboards
+
  
 ## Issues
 
-Traditionally, this is how we would scale jenkins. 
-How ever it would cost less if we used containers for both the master and slaves. 
+Traditionally, we scale by auto scaling EC2s. 
 * Give the cluster a domain name
 * Load balance between Jenkins masters
-* Allow master auto scale slaves/agents with plugin
+* Allow jenkins master auto scale slaves/agents with plugin
 
 
  ![Architecture](./architecture2.png)
  
- 
+However it would cost less if we used containers for both the 
+master and slaves/agents. Alternatively we could deploy jenkins in
+Kubernetes which would keep resources at a minimum and scale 
+up and down more naturally. Kubernetes also generates more metrics
+about what is happing within it. However, Kubernets is more complex
+and can scare folks new to containerization systems.
+
+
  
 ## Maintainers
 
