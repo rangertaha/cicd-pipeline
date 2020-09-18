@@ -1,4 +1,4 @@
-# Old School CI/CD Pipeline
+# Basic CI/CD Pipeline
 
 EC2 based CI/CD Pipeline Terraform modules
 
@@ -47,6 +47,15 @@ terraform apply
 ![Architecture](docs/results.png)
 
 
+## Login/SSH
+
+To remove the server and all associated resources you can do the following.  
+```bash
+terrafrom output
+```
+
+
+
 ## Destroy
 
 To remove the server and all associated resources you can do the following.  
@@ -82,7 +91,7 @@ However it would cost less if we used containers for both the
 master and slaves/agents. Alternatively we could deploy jenkins in
 Kubernetes which would keep resources at a minimum and scale 
 up and down more naturally. Kubernetes also generates more metrics
-about what is happing within it. However, Kubernets is more complex
+about what is happening within it. However, Kubernets is more complex
 and can scare folks new to containerization systems.
 
 
