@@ -44,7 +44,6 @@ Apply the **plan** creating or updating the infrastructure in AWS.
 terraform apply 
 ```
 
-![Architecture](docs/results.png)
 
 
 ## Login/SSH
@@ -59,6 +58,8 @@ ssh ubuntu@$(terrafrom output public_ip)
 ## Browser Access
 
 To access the Jenkins UI. Go to `http://<IP>:8080`
+
+![Architecture](docs/results.png)
 
 
 
