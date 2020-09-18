@@ -9,7 +9,7 @@ variable "release" {
   default = "0.0.1"
 }
 
-variable "project" {
+variable "name" {
   type = string
   default = "jenkins"
 }
@@ -26,3 +26,10 @@ variable "whitelisted_ssh" {
   default = ["0.0.0.0/0"]
 }
 
+variable "private_key" {
+  default = "~/.ssh/id_rsa"
+}
+
+variable "public_key" {
+  default = "~/.ssh/id_rsa.pub"
+}

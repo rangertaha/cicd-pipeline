@@ -1,17 +1,9 @@
-# CI/CD Pipeline 
+# Old School CI/CD Pipeline
 
-CI/CD Pipeline Terraform module
-
-
-![GitHub Logo](./architecture.png)
-
-## Resources
-
-* EC2
-* Load Balancer
-* Cloud Watch Logging
+EC2 based CI/CD Pipeline Terraform modules
 
 
+![Architecture](./architecture.png)
 
 
 ## Dependencies
@@ -61,7 +53,21 @@ terrafrom destroy
 ```
  
 ## Customizations
-Edit the `examples/aws/variables.tf` file to customize aws configurations for the jenkins server.
+Edit the `examples/aws/variables.tfvars` file to customize aws configurations for the jenkins server.
+ 
+ 
+ 
+ 
+## Issues
+
+Traditionally, this is how we would scale jenkins. 
+How ever it would cost less if we used containers for both the master and slaves. 
+* Give the cluster a domain name
+* Load balance between Jenkins masters
+* Allow master auto scale slaves/agents with plugin
+
+
+ ![Architecture](./architecture2.png)
  
  
  

@@ -4,37 +4,24 @@ common-pkgs:
   pkg.installed:
     - refresh: True
     - pkgs:
-      - java-1.8.0-openjdk
-      - traceroute
-      - tcpdump
+      - openjdk-8-jdk
       - git
       - unzip
       - bc
       - jq
       - gcc
-      - htop
-      - telnet
       - bzip2
-      - python34
-      - python34-pip
-      - glibc-static
-      - ncurses-devel
-      - bind-utils
+      - python3
+      - python3-pip
       - net-tools
-      - httpd-tools
-      - vim-enhanced
-      - vim-common
-      - pyOpenSSL
+      - vim
       - python-lxml
-      - python2-pip
-      - python-jinja2
-      - PyYAML
-      - python-paramiko
-      - sshpass
-      - patch
       - figlet
       - nodejs
       - npm
-      - pv
-      - ansible
       - nmap
+      - debtags
+      - python-psutil-doc
+      - ifupdown
+      - python3-pycurl
+      - python3-augeas

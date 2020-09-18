@@ -24,19 +24,18 @@ data "aws_ami" "ubuntu" {
 
 
 resource "aws_key_pair" "jenkins" {
-  key_name = "${var.project}_key"
-  public_key = file(pathexpand("~/.ssh/id_rsa.pub"))
+  key_name = "${var.name}_key"
+  public_key = file(pathexpand(var.public_key))
 
   tags = {
-    Name = "${var.project}_${var.release}"
+    Name = "${var.name}-${var.release}"
     Version = var.release
-    Project = var.project
   }
 }
 
-# allow incoming/outgoing connections to nginx server
+
 resource "aws_security_group" "jenkins" {
-  name = "${var.project}_sg"
+  name = "${var.name}_sg"
   description = "Allow ssh and web traffic"
   ingress {
     description = "Allow SSH"
@@ -61,9 +60,8 @@ resource "aws_security_group" "jenkins" {
       "0.0.0.0/0"]
   }
   tags = {
-    Name = "${var.project}_${var.release}"
+    Name = "${var.name}-${var.release}"
     Version = var.release
-    Project = var.project
   }
 }
 
@@ -74,15 +72,13 @@ resource "aws_instance" "jenkins" {
   instance_type = "t3.micro"
 
   tags = {
-    Name = "${var.project}_${var.release}"
+    Name = "${var.name}-${var.release}"
     Version = var.release
-    Project = var.project
   }
 
   volume_tags = {
-    Name = "${var.project}_${var.release}"
+    Name = "${var.name}-${var.release}"
     Version = var.release
-    Project = var.project
   }
 
   vpc_security_group_ids = [
@@ -94,7 +90,7 @@ resource "aws_instance" "jenkins" {
     connection {
       type = "ssh"
       user = "ubuntu"
-      private_key = file(pathexpand("~/.ssh/id_rsa"))
+      private_key = file(pathexpand(var.private_key))
       host = self.public_ip
     }
   }
@@ -111,8 +107,7 @@ resource "aws_eip" "jenkins" {
   instance = aws_instance.jenkins.id
 
   tags = {
-    Name = "${var.project}_${var.release}"
+    Name = "${var.name}-${var.release}"
     Version = var.release
-    Project = var.project
   }
 }
