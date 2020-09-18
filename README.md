@@ -56,6 +56,9 @@ Together you can do the following to login.
 ssh ubuntu@$(terrafrom output public_ip)
 ```
 
+## Browser Access
+
+To access the Jenkins UI. Go to `http://<IP>:8080`
 
 
 
