@@ -49,10 +49,12 @@ terraform apply
 
 ## Login/SSH
 
-To remove the server and all associated resources you can do the following.  
+You can login to the box with `ssh ubuntu@<IP>`. However to get the ip you use terraform outputs
+ 
 ```bash
-terrafrom output
+ssh ubuntu@$(terrafrom output public_ip)
 ```
+
 
 
 
